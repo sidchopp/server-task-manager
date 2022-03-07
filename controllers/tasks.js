@@ -3,11 +3,17 @@ const getAllTasks = (req, res) => {
 };
 
 const createTask = (req, res) => {
-  res.send("Create a Task")
+  // res.send("Create a Task.")
+  // console.log(req.body);
+  res.json(req.body)
 };
 
 const getTask = (req, res) => {
-  res.send("Get a Task")
+  // console.log(req.params);
+  const { id } = req.params
+  console.log(id);
+  // res.send("Get a Task.")
+  res.json({ id: id })
 };
 
 const updateTask = (req, res) => {

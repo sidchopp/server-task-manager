@@ -8,9 +8,9 @@ const { getAllTasks,
   deleteTask } = require("../controllers/tasks")
 
 //One method
-router.get('/', getAllTasks)
+// router.get('/', getAllTasks)
 
-//Alternate method
+//Second method
 router.route("/").get(getAllTasks).post(createTask)
 router.route('/:id').get(getTask).patch(updateTask).delete(deleteTask)
 
