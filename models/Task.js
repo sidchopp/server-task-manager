@@ -3,8 +3,16 @@ const { Schema } = mongoose;
 
 //mongoose schema
 const TaskSchema = new Schema({
-  name: String, // String is shorthand for {type: String}
-  completed: Boolean
+  name: {
+    type: String,
+    required: [true, 'Please provide a Name'],
+    trim: true,
+    maxlength: [20, 'Name cannot have more than 20 characters']
+  },
+  completed: {
+    type: Boolean,
+    default: false
+  }
 });
 
 //mongoose model
