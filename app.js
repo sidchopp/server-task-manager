@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
-const tasks = require('./routes/tasks')
+const tasks = require('./routes/tasks');
 const connectDB = require('./db/connect');
+const notFound = require('./middleware/notFound');
 
 // mongoDB uri from .env
 require('dotenv').config();
@@ -11,6 +12,9 @@ app.use(express.json());
 
 //routes 
 app.use("/api/v1/tasks", tasks)
+
+//Page not found route
+app.use(notFound);
 
 
 const PORT = 5000;
